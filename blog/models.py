@@ -10,9 +10,12 @@ class Post(models.Model):
     )
     created_date = models.DateTimeField(
         verbose_name='Created Data', auto_now_add=True
-         )
+    )
     publish_date = models.DateTimeField(
         verbose_name='Publish Data', auto_now_add=True
+    )
+    published = models.BooleanField(
+        verbose_name='Published', default=False
     )
 
     def __str__(self):

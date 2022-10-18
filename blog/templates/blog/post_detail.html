@@ -16,13 +16,24 @@
 
 </style>
 <!--    {{ items }}-->
-    <div style="text-align: center ;margin-top : 40 px; margin-bottom: 40px">
-        <a style="font-size: 35px; color: black" href="{% url 'post_list' %}"> Learn info</a>
+        <div style="text-align: center ;margin-top : 40 px; margin-bottom: 40px">
+            <a style="font-size: 35px; color: black" href="{% url 'post_list' %}"> Learn info</a>
 
-    </div>
-
+        </div>
     <div style="text-align: center ;margin-top : 40 px; margin-bottom: 40px;">
-        <a style="font-size: 15px; color: black; border: 1px solid; border-radius: 20px " href="{% url 'post_list' %}">Back to post</a>
+        <a style="margin: 5px;font-size: 15px; color: black; border: 1px solid; border-radius: 20px "
+           href="{% url 'post_list' %}">
+            Back to post
+        </a>
+        <a style="margin: 5px;font-size: 15px; color: black; border: 1px solid; border-radius: 20px "
+           href="{% url 'post_edit' post_pk=post.pk %}">
+            Edit
+        </a>
+        </a>
+        <a style="margin: 5px;font-size: 15px; color: black; border: 1px solid; border-radius: 20px "
+           href="{% url 'post_delete' post_pk=post.pk %}">
+            Delete
+        </a>
     </div>
 
      <div style="">
