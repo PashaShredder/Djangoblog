@@ -14,32 +14,53 @@
 <!--    color: yellow-->
 <!--   }-->
 
+
 </style>
 <!--    {{ items }}-->
 <div>
     <p style="margin-left: 42%">Learn info</p>
 </div>
-    <div style="margin-left: 50px ;margin-top : 40 px; margin-bottom: 40px;">
-        <a style="font-size: 15px; color: black; border: 1px solid; border-radius: 20px " href="{% url 'post_new' %}">
-            Create new post</a>
-     </div><div style="margin-left: 50px ;margin-top : 40 px; margin-bottom: 40px;">
-        <a style="font-size: 15px; color: black; border: 1px solid; border-radius: 20px " href="{% url 'post_list' %}">
-            Published posts</a>
-    </div>
-    </div><div style="margin-left: 50px ;margin-top : 40 px; margin-bottom: 40px;">
-        <a style="font-size: 15px; color: black; border: 1px solid; border-radius: 20px " href="{% url 'post_draft' %}">
-            Unpublished posts</a>
-    </div>
-
-    {% for post in items %}
-    <div style="margin: 30px; display: inline-block">
-        <div style="border: 1px solid">
-            <div style="margin: 50px; text-align center">
-                <a href="{% url 'post_detail' post_pk=post.pk %}">{{ post.title }}</a></div>
-            <div>{{ post.text }}</div>
-            <div style="border-top: 1px solid">{{ post.publish_date }}</div>
-        </div>
-    </div>
+<div style="font-size: 20px; margin-left: 85%; position: absolute; text-align: right">
+    <h2>Category</h2>
+    {% for i in category %}
+        <br><a href="{% url 'categories' category_pk=i.pk %}">{{i}}</a></br>
     {% endfor %}
+</div>
+<div style="margin-left: 50px ;margin-top : 40 px; margin-bottom: 40px;">
+    <a style="font-size: 15px; color: black; border: 1px solid; border-radius: 20px " href="{% url 'post_new' %}">
+        Create new post</a>
+</div>
+<div style="margin-left: 50px ;margin-top : 40 px; margin-bottom: 40px;">
+    <a style="font-size: 15px; color: black; border: 1px solid; border-radius: 20px " href="{% url 'post_list' %}">
+        Published posts</a>
+</div>
+</div>
+<div style="margin-left: 50px ;margin-top : 40 px; margin-bottom: 40px;">
+    <a style="font-size: 15px; color: black; border: 1px solid; border-radius: 20px " href="{% url 'post_draft' %}">
+        Unpublished posts</a>
+</div>
+
+{% for post in items %}
+<div style="margin: 30px; display: inline-block">
+    <div style="border: 1px solid">
+        <div style="margin: 50px; text-align center">
+            <a href="{% url 'post_detail' post_pk=post.pk %}">{{ post.title }}</a></div>
+        <div>{{ post.text }}</div>
+        <div style="border-top: 1px solid">{{ post.publish_date }}</div>
+    </div>
+</div>
+{% endfor %}
+<div style="margin-top: 15px; margin-left: 25px">
+    <a style="border: 2px solid; border-radius: 10px; radding: 5px"
+    href="{% url 'post_draft' %}">
+        Drafts
+    </a>
+</div>
+<div style="margin-top: 15px; margin-left: 25px">
+    <h4>number of publications:</h4>
+    {{counter}}
+
+</div>
+
 </body>
 </html>

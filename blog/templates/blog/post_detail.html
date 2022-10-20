@@ -18,11 +18,17 @@
 
 
 
+
+
 </style>
 <!--    {{ items }}-->
-<div style="text-align: center ;margin-top : 40 px; margin-bottom: 40px">
-    <a style="font-size: 35px; color: black" href="{% url 'post_list' %}"> Learn info</a>
-
+<div><p style="text-align: center ;margin-top : 40 px; margin-bottom: 40px">
+    <a style="font-size: 35px; color: black" href="{% url 'post_list' %}">Name post</a>
+</p>
+</div>
+<div><p style="text-align: center ;margin-top : 30 px; margin-bottom: 20px">
+    <a style="font-size: 35px; color: black" >{{post.category}}</a>
+</p>
 </div>
 <div style="text-align: center ;margin-top : 40 px; margin-bottom: 40px;">
     <a style="margin: 5px;font-size: 15px; color: black; border: 1px solid; border-radius: 20px "
@@ -59,11 +65,9 @@
         </div>
 
         <div style="font-size: 20px; margin: 10px; text-align: justify">
-            <h2>Comments</h2>
-            {% for i in comments %}
-            <br>{{i}}</br>
-            <br>{{i.author}}</br>
-            <br><em>{{i.created_date}}</em></br>
+        <h2>Category</h2>
+        {% for i in category %}
+         <br>{{i}}</br>
             {% endfor %}
             <h5>Number of comments</h5>
             <h5>{{counter}}</h5>
