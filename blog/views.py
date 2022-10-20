@@ -16,6 +16,13 @@ def post_draft(request):
     context = {'items': posts}
     return render(request, 'blog/post_list.html', context)
 
+def published_post(request,post_pk):
+    posts = Post.objects.get(pk=post_pk)
+    posts.published = True
+    posts.save()
+    context = {'post': posts}
+    return render(request, 'blog/post_detail.html', context)
+
 
 def post_detail(request, post_pk):
     post = Post.objects.get(pk=post_pk)

@@ -1,4 +1,4 @@
-from django import forms
+from django import forms  # type: ignore
 from blog.models import Post
 
 class PostForm(forms.ModelForm):
