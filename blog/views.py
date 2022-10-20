@@ -1,7 +1,7 @@
 from datetime import datetime
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from blog.models import Post
+from blog.models import Post, Comments
 from blog.forms import PostForm
 
 
@@ -16,7 +16,8 @@ def post_draft(request):
     context = {'items': posts}
     return render(request, 'blog/post_list.html', context)
 
-def published_post(request,post_pk):
+
+def published_post(request, post_pk):
     posts = Post.objects.get(pk=post_pk)
     posts.published = True
     posts.save()
@@ -26,7 +27,9 @@ def published_post(request,post_pk):
 
 def post_detail(request, post_pk):
     post = Post.objects.get(pk=post_pk)
-    context = {'post': post}
+    comments = Comments.objects.filter(post=post_pk)
+    counter = comments.count()
+    context = {'post': post, 'comments': comments, 'counter': counter}
     return render(request, 'blog/post_detail.html', context)
 
 
